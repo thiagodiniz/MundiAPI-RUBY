@@ -7,9 +7,11 @@ module MundiApi
     attr_accessor :basic_auth_user_name
     attr_accessor :basic_auth_password
 
-    def initialize(basic_auth_user_name, basic_auth_password)
+    def initialize(basic_auth_user_name, basic_auth_password, secret_key)
       @basic_auth_user_name = basic_auth_user_name
       @basic_auth_password = basic_auth_password
+
+      @basic_auth_user_name = secret_key if secret_key
 
       @base_uri = 'https://api.mundipagg.com/core/v1'
     end

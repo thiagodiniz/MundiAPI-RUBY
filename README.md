@@ -88,6 +88,16 @@ client = MundiApi::MundiApiClient.new(
   basic_auth_password: basic_auth_password
 )
 ```
+If you are usign the new SK standard you can just specify the SK.
+
+```ruby
+# Configuration parameters and credentials
+secret_key = 'your_secret_key' # Your secret key.
+
+client = MundiApi::MundiApiClient.new(
+  secret_key: secret_key
+)
+```
 
 The added initlization code can be debugged by putting a breakpoint in the ``` Index ``` method and running the project in debug mode by selecting ``` Run -> Debug 'Development: TestApp' ```.
 
