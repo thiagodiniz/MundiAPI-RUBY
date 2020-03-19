@@ -8,9 +8,9 @@ This client library is a Ruby gem which can be compiled and used in your Ruby an
 
 1. Open the command line interface or the terminal and navigate to the folder containing the source code.
 2. Run ``` gem build mundi_api.gemspec ``` to build the gem.
-3. Once built, the gem can be installed on the current work environment using ``` gem install mundi_api-0.16.9.gem ```
+3. Once built, the gem can be installed on the current work environment using ``` gem install mundi_api-0.16.10.gem ```
 
-![Building Gem](https://apidocs.io/illustration/ruby?step=buildSDK&workspaceFolder=MundiAPI-Ruby&workspaceName=MundiAPI-Ruby&projectName=mundi_api&gemName=mundi_api&gemVer=0.16.9)
+![Building Gem](https://apidocs.io/illustration/ruby?step=buildSDK&workspaceFolder=MundiAPI-Ruby&workspaceName=MundiAPI-Ruby&projectName=mundi_api&gemName=mundi_api&gemVer=0.16.10)
 
 ## How to Use
 
@@ -20,41 +20,41 @@ The following section explains how to use the MundiApi Ruby Gem in a new Rails p
 
 Close any existing projects in RubyMine&trade; by selecting ``` File -> Close Project ```. Next, click on ``` Create New Project ``` to create a new project from scratch.
 
-![Create a new project in RubyMine](https://apidocs.io/illustration/ruby?step=createNewProject0&workspaceFolder=MundiAPI-Ruby&workspaceName=MundiApi&projectName=mundi_api&gemName=mundi_api&gemVer=0.16.9)
+![Create a new project in RubyMine](https://apidocs.io/illustration/ruby?step=createNewProject0&workspaceFolder=MundiAPI-Ruby&workspaceName=MundiApi&projectName=mundi_api&gemName=mundi_api&gemVer=0.16.10)
 
 Next, provide ``` TestApp ``` as the project name, choose ``` Rails Application ``` as the project type, and click ``` OK ```.
 
-![Create a new Rails Application in RubyMine - step 1](https://apidocs.io/illustration/ruby?step=createNewProject1&workspaceFolder=MundiAPI-Ruby&workspaceName=MundiApi&projectName=mundi_api&gemName=mundi_api&gemVer=0.16.9)
+![Create a new Rails Application in RubyMine - step 1](https://apidocs.io/illustration/ruby?step=createNewProject1&workspaceFolder=MundiAPI-Ruby&workspaceName=MundiApi&projectName=mundi_api&gemName=mundi_api&gemVer=0.16.10)
 
 In the next dialog make sure that correct *Ruby SDK* is being used (minimum 2.0.0) and click ``` OK ```.
 
-![Create a new Rails Application in RubyMine - step 2](https://apidocs.io/illustration/ruby?step=createNewProject2&workspaceFolder=MundiAPI-Ruby&workspaceName=MundiApi&projectName=mundi_api&gemName=mundi_api&gemVer=0.16.9)
+![Create a new Rails Application in RubyMine - step 2](https://apidocs.io/illustration/ruby?step=createNewProject2&workspaceFolder=MundiAPI-Ruby&workspaceName=MundiApi&projectName=mundi_api&gemName=mundi_api&gemVer=0.16.10)
 
 This will create a new Rails Application project with an existing set of files and folder.
 
 ### 2. Add reference of the gem
 
-In order to use the MundiApi gem in the new project we must add a gem reference. Locate the ```Gemfile``` in the *Project Explorer* window under the ``` TestApp ``` project node. The file contains references to all gems being used in the project. Here, add the reference to the library gem by adding the following line: ``` gem 'mundi_api', '~> 0.16.9' ```
+In order to use the MundiApi gem in the new project we must add a gem reference. Locate the ```Gemfile``` in the *Project Explorer* window under the ``` TestApp ``` project node. The file contains references to all gems being used in the project. Here, add the reference to the library gem by adding the following line: ``` gem 'mundi_api', '~> 0.16.10' ```
 
-![Add references of the Gemfile](https://apidocs.io/illustration/ruby?step=addReference&workspaceFolder=MundiAPI-Ruby&workspaceName=MundiApi&projectName=mundi_api&gemName=mundi_api&gemVer=0.16.9)
+![Add references of the Gemfile](https://apidocs.io/illustration/ruby?step=addReference&workspaceFolder=MundiAPI-Ruby&workspaceName=MundiApi&projectName=mundi_api&gemName=mundi_api&gemVer=0.16.10)
 
 ### 3. Adding a new Rails Controller
 
 Once the ``` TestApp ``` project is created, a folder named ``` controllers ``` will be visible in the *Project Explorer* under the following path: ``` TestApp > app > controllers ```. Right click on this folder and select ``` New -> Run Rails Generator... ```.
 
-![Run Rails Generator on Controllers Folder](https://apidocs.io/illustration/ruby?step=addCode0&workspaceFolder=MundiAPI-Ruby&workspaceName=MundiApi&projectName=mundi_api&gemName=mundi_api&gemVer=0.16.9)
+![Run Rails Generator on Controllers Folder](https://apidocs.io/illustration/ruby?step=addCode0&workspaceFolder=MundiAPI-Ruby&workspaceName=MundiApi&projectName=mundi_api&gemName=mundi_api&gemVer=0.16.10)
 
 Selecting the said option will popup a small window where the generator names are displayed. Here, select the ``` controller ``` template.
 
-![Create a new Controller](https://apidocs.io/illustration/ruby?step=addCode1&workspaceFolder=MundiAPI-Ruby&workspaceName=MundiApi&projectName=mundi_api&gemName=mundi_api&gemVer=0.16.9)
+![Create a new Controller](https://apidocs.io/illustration/ruby?step=addCode1&workspaceFolder=MundiAPI-Ruby&workspaceName=MundiApi&projectName=mundi_api&gemName=mundi_api&gemVer=0.16.10)
 
 Next, a popup window will ask you for a Controller name and included Actions. For controller name provide ``` Hello ``` and include an action named ``` Index ``` and click ``` OK ```.
 
-![Add a new Controller](https://apidocs.io/illustration/ruby?step=addCode2&workspaceFolder=MundiAPI-Ruby&workspaceName=MundiApi&projectName=mundi_api&gemName=mundi_api&gemVer=0.16.9)
+![Add a new Controller](https://apidocs.io/illustration/ruby?step=addCode2&workspaceFolder=MundiAPI-Ruby&workspaceName=MundiApi&projectName=mundi_api&gemName=mundi_api&gemVer=0.16.10)
 
 A new controller class anmed ``` HelloController ``` will be created in a file named ``` hello_controller.rb ``` containing a method named ``` Index ```. In this method, add code for initialization and a sample for its usage.
 
-![Initialize the library](https://apidocs.io/illustration/ruby?step=addCode3&workspaceFolder=MundiAPI-Ruby&workspaceName=MundiApi&projectName=mundi_api&gemName=mundi_api&gemVer=0.16.9)
+![Initialize the library](https://apidocs.io/illustration/ruby?step=addCode3&workspaceFolder=MundiAPI-Ruby&workspaceName=MundiApi&projectName=mundi_api&gemName=mundi_api&gemVer=0.16.10)
 
 ## How to Test
 
@@ -91,7 +91,7 @@ client = MundiApi::MundiApiClient.new(
 
 The added initlization code can be debugged by putting a breakpoint in the ``` Index ``` method and running the project in debug mode by selecting ``` Run -> Debug 'Development: TestApp' ```.
 
-![Debug the TestApp](https://apidocs.io/illustration/ruby?step=addCode4&workspaceFolder=MundiAPI-Ruby&workspaceName=MundiApi&projectName=mundi_api&gemName=mundi_api&gemVer=0.16.9&initLine=client%2520%253D%2520MundiApiClient.new%2528%2527basic_auth_user_name%2527%252C%2520%2527basic_auth_password%2527%2529)
+![Debug the TestApp](https://apidocs.io/illustration/ruby?step=addCode4&workspaceFolder=MundiAPI-Ruby&workspaceName=MundiApi&projectName=mundi_api&gemName=mundi_api&gemVer=0.16.10&initLine=client%2520%253D%2520MundiApiClient.new%2528%2527basic_auth_user_name%2527%252C%2520%2527basic_auth_password%2527%2529)
 
 
 
@@ -113,9 +113,9 @@ The added initlization code can be debugged by putting a breakpoint in the ``` I
 
 ## <a name="subscriptions_controller"></a>![Class: ](https://apidocs.io/img/class.png ".SubscriptionsController") SubscriptionsController
 
-### Get singleton instance
+### How to use the controller
 
-The singleton instance of the ``` SubscriptionsController ``` class can be accessed from the API Client.
+An instance of the ``` SubscriptionsController ``` class can be accessed from the API Client.
 
 ```ruby
 subscriptions_controller = client.subscriptions
@@ -1322,9 +1322,9 @@ result = subscriptions_controller.get_usage_report(subscription_id, period_id)
 
 ## <a name="orders_controller"></a>![Class: ](https://apidocs.io/img/class.png ".OrdersController") OrdersController
 
-### Get singleton instance
+### How to use the controller
 
-The singleton instance of the ``` OrdersController ``` class can be accessed from the API Client.
+An instance of the ``` OrdersController ``` class can be accessed from the API Client.
 
 ```ruby
 orders_controller = client.orders
@@ -1654,9 +1654,9 @@ result = orders_controller.update_order_status(id, request, idempotency_key)
 
 ## <a name="plans_controller"></a>![Class: ](https://apidocs.io/img/class.png ".PlansController") PlansController
 
-### Get singleton instance
+### How to use the controller
 
-The singleton instance of the ``` PlansController ``` class can be accessed from the API Client.
+An instance of the ``` PlansController ``` class can be accessed from the API Client.
 
 ```ruby
 plans_controller = client.plans
@@ -1986,9 +1986,9 @@ result = plans_controller.delete_plan_item(plan_id, plan_item_id, idempotency_ke
 
 ## <a name="invoices_controller"></a>![Class: ](https://apidocs.io/img/class.png ".InvoicesController") InvoicesController
 
-### Get singleton instance
+### How to use the controller
 
-The singleton instance of the ``` InvoicesController ``` class can be accessed from the API Client.
+An instance of the ``` InvoicesController ``` class can be accessed from the API Client.
 
 ```ruby
 invoices_controller = client.invoices
@@ -2231,9 +2231,9 @@ result = invoices_controller.get_partial_invoice(subscription_id)
 
 ## <a name="customers_controller"></a>![Class: ](https://apidocs.io/img/class.png ".CustomersController") CustomersController
 
-### Get singleton instance
+### How to use the controller
 
-The singleton instance of the ``` CustomersController ``` class can be accessed from the API Client.
+An instance of the ``` CustomersController ``` class can be accessed from the API Client.
 
 ```ruby
 customers_controller = client.customers
@@ -2906,9 +2906,9 @@ result = customers_controller.create_customer(request, idempotency_key)
 
 ## <a name="charges_controller"></a>![Class: ](https://apidocs.io/img/class.png ".ChargesController") ChargesController
 
-### Get singleton instance
+### How to use the controller
 
-The singleton instance of the ``` ChargesController ``` class can be accessed from the API Client.
+An instance of the ``` ChargesController ``` class can be accessed from the API Client.
 
 ```ruby
 charges_controller = client.charges
@@ -3340,9 +3340,9 @@ result = charges_controller.get_charges_summary(status, created_since, created_u
 
 ## <a name="recipients_controller"></a>![Class: ](https://apidocs.io/img/class.png ".RecipientsController") RecipientsController
 
-### Get singleton instance
+### How to use the controller
 
-The singleton instance of the ``` RecipientsController ``` class can be accessed from the API Client.
+An instance of the ``` RecipientsController ``` class can be accessed from the API Client.
 
 ```ruby
 recipients_controller = client.recipients
@@ -3934,9 +3934,9 @@ result = recipients_controller.get_withdrawals(recipient_id, page, size, status,
 
 ## <a name="tokens_controller"></a>![Class: ](https://apidocs.io/img/class.png ".TokensController") TokensController
 
-### Get singleton instance
+### How to use the controller
 
-The singleton instance of the ``` TokensController ``` class can be accessed from the API Client.
+An instance of the ``` TokensController ``` class can be accessed from the API Client.
 
 ```ruby
 tokens_controller = client.tokens
@@ -4011,9 +4011,9 @@ result = tokens_controller.create_token(public_key, request, idempotency_key)
 
 ## <a name="sellers_controller"></a>![Class: ](https://apidocs.io/img/class.png ".SellersController") SellersController
 
-### Get singleton instance
+### How to use the controller
 
-The singleton instance of the ``` SellersController ``` class can be accessed from the API Client.
+An instance of the ``` SellersController ``` class can be accessed from the API Client.
 
 ```ruby
 sellers_controller = client.sellers
@@ -4221,9 +4221,9 @@ result = sellers_controller.update_seller_metadata(seller_id, request, idempoten
 
 ## <a name="transactions_controller"></a>![Class: ](https://apidocs.io/img/class.png ".TransactionsController") TransactionsController
 
-### Get singleton instance
+### How to use the controller
 
-The singleton instance of the ``` TransactionsController ``` class can be accessed from the API Client.
+An instance of the ``` TransactionsController ``` class can be accessed from the API Client.
 
 ```ruby
 transactions_controller = client.transactions
@@ -4259,9 +4259,9 @@ result = transactions_controller.get_transaction(transaction_id)
 
 ## <a name="transfers_controller"></a>![Class: ](https://apidocs.io/img/class.png ".TransfersController") TransfersController
 
-### Get singleton instance
+### How to use the controller
 
-The singleton instance of the ``` TransfersController ``` class can be accessed from the API Client.
+An instance of the ``` TransfersController ``` class can be accessed from the API Client.
 
 ```ruby
 transfers_controller = client.transfers
