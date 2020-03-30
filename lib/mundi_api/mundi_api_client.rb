@@ -9,67 +9,67 @@ module MundiApi
     # Access to subscriptions controller.
     # @return [SubscriptionsController] Returns a controller object.
     def subscriptions
-      SubscriptionsController.new(configuration: @configuration)
+      @subscriptions ||= SubscriptionsController.new(configuration: @configuration)
     end
 
     # Access to orders controller.
     # @return [OrdersController] Returns a controller object.
     def orders
-      OrdersController.new(configuration: @configuration)
+      @orders ||= OrdersController.new(configuration: @configuration)
     end
 
     # Access to plans controller.
     # @return [PlansController] Returns a controller object.
     def plans
-      PlansController.new(configuration: @configuration)
+      @plans ||= PlansController.new(configuration: @configuration)
     end
 
     # Access to invoices controller.
     # @return [InvoicesController] Returns a controller object.
     def invoices
-      InvoicesController.new(configuration: @configuration)
+      @invoices ||= InvoicesController.new(configuration: @configuration)
     end
 
     # Access to customers controller.
     # @return [CustomersController] Returns a controller object.
     def customers
-      CustomersController.new(configuration: @configuration)
+      @customers ||= CustomersController.new(configuration: @configuration)
     end
 
     # Access to charges controller.
     # @return [ChargesController] Returns a controller object.
     def charges
-      ChargesController.new(configuration: @configuration)
+      @charges ||= ChargesController.new(configuration: @configuration)
     end
 
     # Access to recipients controller.
     # @return [RecipientsController] Returns a controller object.
     def recipients
-      RecipientsController.new(configuration: @configuration)
+      @recipients ||= RecipientsController.new(configuration: @configuration)
     end
 
     # Access to tokens controller.
     # @return [TokensController] Returns a controller object.
     def tokens
-      TokensController.new(configuration: @configuration)
+      @tokens ||= TokensController.new(configuration: @configuration)
     end
 
     # Access to sellers controller.
     # @return [SellersController] Returns a controller object.
     def sellers
-      SellersController.new(configuration: @configuration)
+      @sellers ||= SellersController.new(configuration: @configuration)
     end
 
     # Access to transactions controller.
     # @return [TransactionsController] Returns a controller object.
     def transactions
-      TransactionsController.new(configuration: @configuration)
+      @transactions ||= TransactionsController.new(configuration: @configuration)
     end
 
     # Access to transfers controller.
     # @return [TransfersController] Returns a controller object.
     def transfers
-      TransfersController.new(configuration: @configuration)
+      @transfers ||= TransfersController.new(configuration: @configuration)
     end
 
     # Returns the configuration object for easy access.
