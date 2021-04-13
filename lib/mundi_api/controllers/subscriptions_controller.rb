@@ -996,13 +996,17 @@ module MundiApi
     # system
     # @param [String] group Optional parameter: Identification group in the
     # client system
+    # @param [DateTime] used_since Optional parameter: Example:
+    # @param [DateTime] used_until Optional parameter: Example:
     # @return ListUsagesResponse response from the API call
     def get_usages(subscription_id,
                    item_id,
                    page = nil,
                    size = nil,
                    code = nil,
-                   group = nil)
+                   group = nil,
+                   used_since = nil,
+                   used_until = nil)
       # Prepare query url.
       _path_url = '/subscriptions/{subscription_id}/items/{item_id}/usages'
       _path_url = APIHelper.append_url_with_template_parameters(
@@ -1018,7 +1022,9 @@ module MundiApi
           'page' => page,
           'size' => size,
           'code' => code,
-          'group' => group
+          'group' => group,
+          'used_since' => used_since,
+          'used_until' => used_until
         },
         array_serialization: configuration.array_serialization
       )

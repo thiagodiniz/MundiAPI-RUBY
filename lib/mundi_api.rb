@@ -226,6 +226,17 @@ require_relative 'mundi_api/models/list_transfers.rb'
 require_relative 'mundi_api/models/list_withdrawals.rb'
 require_relative 'mundi_api/models/create_private_label_payment_request.rb'
 require_relative 'mundi_api/models/get_private_label_transaction_response.rb'
+require_relative 'mundi_api/models/create_automatic_anticipation_settings' \
+                 '_request.rb'
+require_relative 'mundi_api/models/update_automatic_anticipation_settings' \
+                 '_request.rb'
+require_relative 'mundi_api/models/get_automatic_anticipation_response.rb'
+require_relative 'mundi_api/models/get_split_options_response.rb'
+require_relative 'mundi_api/models/create_sub_merchant_request.rb'
+require_relative 'mundi_api/models/get_pix_transaction_response.rb'
+require_relative 'mundi_api/models/pix_additional_information.rb'
+require_relative 'mundi_api/models/create_pix_payment_request.rb'
+require_relative 'mundi_api/models/get_transfer_settings_response.rb'
 
 # Exceptions
 require_relative 'mundi_api/exceptions/api_exception.rb'

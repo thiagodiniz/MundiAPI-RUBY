@@ -7,43 +7,39 @@ require 'date'
 require_relative 'get_transaction_response'
 
 module MundiApi
-  # Response object for getting a bank transfer transaction
-  class GetBankTransferTransactionResponse < GetTransactionResponse
-    # Payment url
+  # Response object when getting a pix transaction
+  class GetPixTransactionResponse < GetTransactionResponse
+    # TODO: Write general description for this method
     # @return [String]
-    attr_accessor :url
+    attr_accessor :qr_code
 
-    # Transaction identifier for the bank
+    # TODO: Write general description for this method
     # @return [String]
-    attr_accessor :bank_tid
+    attr_accessor :qr_code_url
 
-    # Bank
-    # @return [String]
-    attr_accessor :bank
-
-    # Payment date
+    # TODO: Write general description for this method
     # @return [DateTime]
-    attr_accessor :paid_at
+    attr_accessor :expires_at
 
-    # Paid amount
-    # @return [Integer]
-    attr_accessor :paid_amount
+    # TODO: Write general description for this method
+    # @return [List of PixAdditionalInformation]
+    attr_accessor :additional_information
 
     # A mapping from model property names to API property names.
     def self.names
       @_hash = {} if @_hash.nil?
-      @_hash['url'] = 'url'
-      @_hash['bank_tid'] = 'bank_tid'
-      @_hash['bank'] = 'bank'
-      @_hash['paid_at'] = 'paid_at'
-      @_hash['paid_amount'] = 'paid_amount'
+      @_hash['qr_code'] = 'qr_code'
+      @_hash['qr_code_url'] = 'qr_code_url'
+      @_hash['expires_at'] = 'expires_at'
+      @_hash['additional_information'] = 'additional_information'
       @_hash = super().merge(@_hash)
       @_hash
     end
 
-    def initialize(url = nil,
-                   bank_tid = nil,
-                   bank = nil,
+    def initialize(qr_code = nil,
+                   qr_code_url = nil,
+                   expires_at = nil,
+                   additional_information = nil,
                    gateway_id = nil,
                    amount = nil,
                    status = nil,
@@ -57,16 +53,13 @@ module MundiApi
                    gateway_response = nil,
                    antifraud_response = nil,
                    split = nil,
-                   paid_at = nil,
-                   paid_amount = nil,
                    next_attempt = nil,
                    transaction_type = nil,
                    metadata = nil)
-      @url = url
-      @bank_tid = bank_tid
-      @bank = bank
-      @paid_at = paid_at
-      @paid_amount = paid_amount
+      @qr_code = qr_code
+      @qr_code_url = qr_code_url
+      @expires_at = expires_at
+      @additional_information = additional_information
 
       # Call the constructor of the base class
       super(gateway_id,
@@ -92,9 +85,17 @@ module MundiApi
       return nil unless hash
 
       # Extract variables from the hash.
-      url = hash['url']
-      bank_tid = hash['bank_tid']
-      bank = hash['bank']
+      qr_code = hash['qr_code']
+      qr_code_url = hash['qr_code_url']
+      expires_at = APIHelper.rfc3339(hash['expires_at']) if hash['expires_at']
+      # Parameter is an array, so we need to iterate through it
+      additional_information = nil
+      unless hash['additional_information'].nil?
+        additional_information = []
+        hash['additional_information'].each do |structure|
+          additional_information << (PixAdditionalInformation.from_hash(structure) if structure)
+        end
+      end
       gateway_id = hash['gateway_id']
       amount = hash['amount']
       status = hash['status']
@@ -126,35 +127,32 @@ module MundiApi
           split << (GetSplitResponse.from_hash(structure) if structure)
         end
       end
-      paid_at = APIHelper.rfc3339(hash['paid_at']) if hash['paid_at']
-      paid_amount = hash['paid_amount']
       next_attempt = APIHelper.rfc3339(hash['next_attempt']) if
         hash['next_attempt']
       transaction_type = hash['transaction_type']
       metadata = hash['metadata']
 
       # Create object from extracted values.
-      GetBankTransferTransactionResponse.new(url,
-                                             bank_tid,
-                                             bank,
-                                             gateway_id,
-                                             amount,
-                                             status,
-                                             success,
-                                             created_at,
-                                             updated_at,
-                                             attempt_count,
-                                             max_attempts,
-                                             splits,
-                                             id,
-                                             gateway_response,
-                                             antifraud_response,
-                                             split,
-                                             paid_at,
-                                             paid_amount,
-                                             next_attempt,
-                                             transaction_type,
-                                             metadata)
+      GetPixTransactionResponse.new(qr_code,
+                                    qr_code_url,
+                                    expires_at,
+                                    additional_information,
+                                    gateway_id,
+                                    amount,
+                                    status,
+                                    success,
+                                    created_at,
+                                    updated_at,
+                                    attempt_count,
+                                    max_attempts,
+                                    splits,
+                                    id,
+                                    gateway_response,
+                                    antifraud_response,
+                                    split,
+                                    next_attempt,
+                                    transaction_type,
+                                    metadata)
     end
   end
 end

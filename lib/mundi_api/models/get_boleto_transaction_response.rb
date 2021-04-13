@@ -15,7 +15,7 @@ module MundiApi
 
     # TODO: Write general description for this method
     # @return [String]
-    attr_accessor :bar_code
+    attr_accessor :barcode
 
     # TODO: Write general description for this method
     # @return [String]
@@ -77,7 +77,7 @@ module MundiApi
     def self.names
       @_hash = {} if @_hash.nil?
       @_hash['url'] = 'url'
-      @_hash['bar_code'] = 'bar_code'
+      @_hash['barcode'] = 'barcode'
       @_hash['nosso_numero'] = 'nosso_numero'
       @_hash['bank'] = 'bank'
       @_hash['document_number'] = 'document_number'
@@ -97,7 +97,7 @@ module MundiApi
     end
 
     def initialize(url = nil,
-                   bar_code = nil,
+                   barcode = nil,
                    nosso_numero = nil,
                    bank = nil,
                    document_number = nil,
@@ -121,6 +121,7 @@ module MundiApi
                    id = nil,
                    gateway_response = nil,
                    antifraud_response = nil,
+                   split = nil,
                    due_at = nil,
                    paid_at = nil,
                    credit_at = nil,
@@ -128,7 +129,7 @@ module MundiApi
                    transaction_type = nil,
                    metadata = nil)
       @url = url
-      @bar_code = bar_code
+      @barcode = barcode
       @nosso_numero = nosso_numero
       @bank = bank
       @document_number = document_number
@@ -157,6 +158,7 @@ module MundiApi
             id,
             gateway_response,
             antifraud_response,
+            split,
             next_attempt,
             transaction_type,
             metadata)
@@ -168,7 +170,7 @@ module MundiApi
 
       # Extract variables from the hash.
       url = hash['url']
-      bar_code = hash['bar_code']
+      barcode = hash['barcode']
       nosso_numero = hash['nosso_numero']
       bank = hash['bank']
       document_number = hash['document_number']
@@ -205,6 +207,14 @@ module MundiApi
       if hash['antifraud_response']
         antifraud_response = GetAntifraudResponse.from_hash(hash['antifraud_response'])
       end
+      # Parameter is an array, so we need to iterate through it
+      split = nil
+      unless hash['split'].nil?
+        split = []
+        hash['split'].each do |structure|
+          split << (GetSplitResponse.from_hash(structure) if structure)
+        end
+      end
       due_at = APIHelper.rfc3339(hash['due_at']) if hash['due_at']
       paid_at = APIHelper.rfc3339(hash['paid_at']) if hash['paid_at']
       credit_at = APIHelper.rfc3339(hash['credit_at']) if hash['credit_at']
@@ -215,7 +225,7 @@ module MundiApi
 
       # Create object from extracted values.
       GetBoletoTransactionResponse.new(url,
-                                       bar_code,
+                                       barcode,
                                        nosso_numero,
                                        bank,
                                        document_number,
@@ -239,6 +249,7 @@ module MundiApi
                                        id,
                                        gateway_response,
                                        antifraud_response,
+                                       split,
                                        due_at,
                                        paid_at,
                                        credit_at,

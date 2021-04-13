@@ -15,7 +15,7 @@ module MundiApi
       @configuration = configuration
 
       @global_headers = {
-        'user-agent' => 'MundiSDK - Ruby 0.16.11'
+        'user-agent' => 'MundiSDK - Ruby 0.16.22'
       }
     end
 

@@ -67,6 +67,10 @@ module MundiApi
     # @return [Array<String, String>]
     attr_accessor :metadata
 
+    # The Gateway Response
+    # @return [List of GetSplitResponse]
+    attr_accessor :split
+
     # Discriminators mapping.
     def self.discriminators
       if @_discriminators.nil?
@@ -79,6 +83,7 @@ module MundiApi
         @_discriminators['cash'] = GetCashTransactionResponse.method(:from_hash)
         @_discriminators['credit_card'] = GetCreditCardTransactionResponse.method(:from_hash)
         @_discriminators['private_label'] = GetPrivateLabelTransactionResponse.method(:from_hash)
+        @_discriminators['pix'] = GetPixTransactionResponse.method(:from_hash)
       end
       @_discriminators
     end
@@ -101,6 +106,7 @@ module MundiApi
       @_hash['gateway_response'] = 'gateway_response'
       @_hash['antifraud_response'] = 'antifraud_response'
       @_hash['metadata'] = 'metadata'
+      @_hash['split'] = 'split'
       @_hash
     end
 
@@ -116,6 +122,7 @@ module MundiApi
                    id = nil,
                    gateway_response = nil,
                    antifraud_response = nil,
+                   split = nil,
                    next_attempt = nil,
                    transaction_type = nil,
                    metadata = nil)
@@ -134,6 +141,7 @@ module MundiApi
       @gateway_response = gateway_response
       @antifraud_response = antifraud_response
       @metadata = metadata
+      @split = split
     end
 
     # Creates an instance of the object from a hash.
@@ -169,6 +177,14 @@ module MundiApi
       if hash['antifraud_response']
         antifraud_response = GetAntifraudResponse.from_hash(hash['antifraud_response'])
       end
+      # Parameter is an array, so we need to iterate through it
+      split = nil
+      unless hash['split'].nil?
+        split = []
+        hash['split'].each do |structure|
+          split << (GetSplitResponse.from_hash(structure) if structure)
+        end
+      end
       next_attempt = APIHelper.rfc3339(hash['next_attempt']) if
         hash['next_attempt']
       transaction_type = hash['transaction_type']
@@ -187,6 +203,7 @@ module MundiApi
                                  id,
                                  gateway_response,
                                  antifraud_response,
+                                 split,
                                  next_attempt,
                                  transaction_type,
                                  metadata)
